@@ -1,38 +1,44 @@
-<h1>Pasta</h1>
-<ul>
-    <li *ngFor="let pasta of pasta; let i = index" [style.background-color]="selectedPasta === i ? 'green' : 'white'" 
-    [style.order]="getOrder(i, 'pasta')" [style.color]="selectedPasta === i ? 'white' : 'black'" >
-        {{pasta}}
-    </li>
-</ul>
-<h1>Meats</h1>
-<ul>
-    <li *ngFor="let meat of meats; let i = index" [style.background-color]="selectedMeat === i ? 'green' : 'white'"  
-    [style.order]="getOrder(i, 'meats')" [style.color]="selectedMeat === i ? 'white' : 'black'" >
-        {{meat}}
-    </li>
-</ul>
-<h1>Sauces</h1>
-<ul>
-    <li *ngFor="let sauce of sauces; let i = index" [style.background-color]="selectedSauce === i ? 'green' : 'white'"  
-    [style.order]="getOrder(i, 'sauces')" [style.color]="selectedSauce === i ? 'white' : 'black'" >
-        {{sauce}}
-    </li>
-</ul>
-<h1>Sides</h1>
-<ul>
-    <li *ngFor="let side of sides; let i = index" [style.background-color]="selectedSide === i ? 'green' : 'white'"  
-    [style.order]="getOrder(i, 'sides')" [style.color]="selectedSide === i ? 'white' : 'black'" >
-        {{side}}
-    </li>
-</ul>
-<p *ngIf="selectedPasta > -1">
-    You are having {{pasta[selectedPasta]}} with {{meats[selectedMeat]}} in a
-    {{sauces[selectedSauce]}} sauce, and {{sides[selectedSide]}} on the side
-</p>
-<p *ngIf="selectedPasta === -1">
-    {{isSpinning ? "DECIDING" : "Press 'Randomise' to get started"}}
-</p>
-<footer>
-    <button (click)="randomise()" [disabled]="isSpinning">Randomise</button>
-</footer>
+<div>
+    <h1>Pasta</h1>
+    <ul>
+        <li *ngFor="let pasta of pasta; let i = index"
+            [style.background-color]="selectedPasta === i ? 'green' : '#1d2222'" [style.order]="getOrder(i, 'pasta')"
+            [style.color]="selectedPasta === i ? 'white' : '#ccc'">
+            {{pasta}}
+        </li>
+    </ul>
+    <h1>Meat</h1>
+    <ul>
+        <li *ngFor="let meat of meats; let i = index"
+            [style.background-color]="selectedMeat === i ? 'green' : '#1d2222'" [style.order]="getOrder(i, 'meats')"
+            [style.color]="selectedMeat === i ? 'white' : '#ccc'">
+            {{meat}}
+        </li>
+    </ul>
+    <h1>Sauce</h1>
+    <ul>
+        <li *ngFor="let sauce of sauces; let i = index"
+            [style.background-color]="selectedSauce === i ? 'green' : '#1d2222'" [style.order]="getOrder(i, 'sauces')"
+            [style.color]="selectedSauce === i ? 'white' : '#ccc'">
+            {{sauce}}
+        </li>
+    </ul>
+    <h1>Side</h1>
+    <ul>
+        <li *ngFor="let side of sides; let i = index"
+            [style.background-color]="selectedSide === i ? 'green' : '#1d2222'" [style.order]="getOrder(i, 'sides')"
+            [style.color]="selectedSide === i ? 'white' : '#ccc'">
+            {{side}}
+        </li>
+    </ul>
+    <p *ngIf="selectedPasta > -1">
+        You are having {{pasta[selectedPasta]}} with {{meats[selectedMeat]}} in a
+        {{sauces[selectedSauce]}} sauce, and {{sides[selectedSide]}} on the side!
+    </p>
+    <p *ngIf="selectedPasta === -1">
+        {{isSpinning ? "Choosing..." : "Press 'Randomise' to get started"}}
+    </p>
+    <footer>
+        <button (click)="randomise()" [disabled]="isSpinning">Randomise</button>
+    </footer>
+</div>

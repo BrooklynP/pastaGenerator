@@ -1,12 +1,20 @@
+div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    overflow-x: hidden;
+}
+
 ul{
     display: flex;
-    border: solid 1px #ccc;
     width: 100%;
+    margin: 0;
     padding: 0;
 }
 li{
     list-style: none;
-    border: solid 1px #ccc;
+    border: solid 1px black;
     border-radius: 4px;
     padding: 8px 16px;
     min-width: 11.11%;
@@ -17,6 +25,15 @@ h1, p{
     text-align: center;
 }
 
+
+h1{
+    font-family: Pasta;
+    font-size: 32pt;
+    padding: 8px;
+    margin: 0;
+    color: white;
+}
+
 footer{
     display: flex;
     justify-content: center;
@@ -24,6 +41,12 @@ footer{
 
 button{
     cursor: pointer;
+    width: 200px;
+    height: 30px;
+}
+
+p{
+    color: #ccc;
 }
 
 *{

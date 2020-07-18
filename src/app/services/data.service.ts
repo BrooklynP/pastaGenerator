@@ -9,12 +9,13 @@ export class DataService {
     'Lasagne', 'Lasagne Squares', 'Linguine', 'Parpadelle', 'Spaghetti', 'Macaroni',
     'Fettuccine', 'Spiralli', 'Penne', 'Fussili', 'Tagliatelle'];
   private meats = ['Diced Chicken Breast', 'Diced Turkey Breast', 'Chicken Butterfly', 'Beef Meatballs', 'Swedish Meatballs',
-    'Chicken Meatballs', 'Chicken Sausage', 'Sausages', 'Hotdogs', 'Mince Beef', 'Decased Sausage',
+    'Chicken Meatballs', 'Chicken Sausage', 'Sausages', 'Hotdogs', 'Mince Beef', 'Decased Sausage', 'Pancetta',
     'No Meat'];
   private sauces = ['Marinara', 'Alfredo', 'Arabiata', 'Mushroom', 'Green Pesto',
     'Red Pesto', 'Bechemel', 'Chicken Tonight', 'Pink Sauce', 'Cheese',
-    'Vodka', 'Marscapone', 'Pasta Bake', 'Carbonara'];
-  private sides = ['Boiled Veg', 'Garlic Bread', 'Buttered Bread', 'Dough Balls', 'Mozerlla Sticks', 'Wedges'];
+    'Vodka', 'Marscapone', 'Pasta Bake'];
+  private sides = ['Boiled Veg', 'Garlic Bread', 'Buttered Bread', 'Dough Balls', 'Mozarella Sticks', 'Wedges', 'Boiled Potatoes', 
+  'Parmesan Broccoli', 'Nothing'];
 
   constructor() { }
 
