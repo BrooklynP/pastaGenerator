@@ -53,89 +53,37 @@ export class HomeComponent implements OnInit {
       this.selectedSide = this.data.getRandomItem('sides');
       this.isSpinning = false;
     }, 2000);
+  }
 
-
+  getOrderForArray(array, currentIndex, selectedItem) {
+    let newIndex = currentIndex;
+    if (selectedItem === -1) {
+      newIndex = currentIndex + this.offset;
+      while (newIndex >= array.length) {
+        newIndex = newIndex - array.length;
+      }
+      return newIndex;
+    } else {
+      if (currentIndex === selectedItem) {
+        return 4;
+      } else if (currentIndex === 4) {
+        return selectedItem;
+      } else {
+        return currentIndex;
+      }
+    }
   }
 
   getOrder(currentIndex, arrayName) {
-    let index = currentIndex;
     switch (arrayName) {
       case 'pasta':
-        if (this.selectedPasta === -1) {
-          index = currentIndex + this.offset;
-          while (index >= this.pasta.length) {
-            index = index - this.pasta.length;
-          }
-          return index;
-        }
-        else {
-          if (currentIndex === this.selectedPasta) {
-            return 4;
-          }
-          else if (currentIndex === 4) {
-            return this.selectedPasta;
-          }
-          else {
-            return currentIndex;
-          }
-        }
+        return this.getOrderForArray(this.pasta, currentIndex, this.selectedPasta);
       case 'meats':
-        if (this.selectedMeat === -1) {
-          index = currentIndex + this.offset;
-          while (index >= this.meats.length) {
-            index = index - this.meats.length;
-          }
-          return index;
-        }
-        else {
-          if (currentIndex === this.selectedMeat) {
-            return 4;
-          }
-          else if (currentIndex === 4) {
-            return this.selectedMeat;
-          }
-          else {
-            return currentIndex;
-          }
-        }
+        return this.getOrderForArray(this.meats, currentIndex, this.selectedMeat);
       case 'sauces':
-        if (this.selectedSauce === -1) {
-          index = currentIndex + this.offset;
-          while (index >= this.sauces.length) {
-            index = index - this.sauces.length;
-          }
-          return index;
-        }
-        else {
-          if (currentIndex === this.selectedSauce) {
-            return 4;
-          }
-          else if (currentIndex === 4) {
-            return this.selectedSauce;
-          }
-          else {
-            return currentIndex;
-          }
-        }
+        return this.getOrderForArray(this.sauces, currentIndex, this.selectedSauce);
       case 'sides':
-        if (this.selectedSide === -1) {
-          index = currentIndex + this.offset;
-          while (index >= this.sides.length) {
-            index = index - this.sides.length;
-          }
-          return index;
-        }
-        else {
-          if (currentIndex === this.selectedSide) {
-            return 4;
-          }
-          else if (currentIndex === 4) {
-            return this.selectedSide;
-          }
-          else {
-            return currentIndex;
-          }
-        }
+        return this.getOrderForArray(this.sides, currentIndex, this.selectedSide);
       default:
         return currentIndex;
     }
