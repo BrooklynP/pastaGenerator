@@ -1,26 +1,38 @@
 <h1>Pasta</h1>
 <ul>
-    <li *ngFor="let pasta of pasta; let i = index" [style.background-color]="selectedPasta === i ? 'green' : 'white'">
-        {{pasta}}</li>
+    <li *ngFor="let pasta of pasta; let i = index" [style.background-color]="selectedPasta === i ? 'green' : 'white'" 
+    [style.order]="getOrder(i, 'pasta')" [style.color]="selectedPasta === i ? 'white' : 'black'" >
+        {{pasta}}
+    </li>
 </ul>
 <h1>Meats</h1>
 <ul>
-    <li *ngFor="let meat of meats; let i = index" [style.background-color]="selectedMeat === i ? 'green' : 'white'">
-        {{meat}}</li>
+    <li *ngFor="let meat of meats; let i = index" [style.background-color]="selectedMeat === i ? 'green' : 'white'"  
+    [style.order]="getOrder(i, 'meats')" [style.color]="selectedMeat === i ? 'white' : 'black'" >
+        {{meat}}
+    </li>
 </ul>
 <h1>Sauces</h1>
 <ul>
-    <li *ngFor="let sauce of sauces; let i = index" [style.background-color]="selectedSauce === i ? 'green' : 'white'">
-        {{sauce}}</li>
+    <li *ngFor="let sauce of sauces; let i = index" [style.background-color]="selectedSauce === i ? 'green' : 'white'"  
+    [style.order]="getOrder(i, 'sauces')" [style.color]="selectedSauce === i ? 'white' : 'black'" >
+        {{sauce}}
+    </li>
 </ul>
 <h1>Sides</h1>
 <ul>
-    <li *ngFor="let side of sides; let i = index" [style.background-color]="selectedSide === i ? 'green' : 'white'">
-        {{side}}</li>
+    <li *ngFor="let side of sides; let i = index" [style.background-color]="selectedSide === i ? 'green' : 'white'"  
+    [style.order]="getOrder(i, 'sides')" [style.color]="selectedSide === i ? 'white' : 'black'" >
+        {{side}}
+    </li>
 </ul>
-<p *ngIf="selectedPasta > -1">You are having {{pasta[selectedPasta]}} with {{meats[selectedMeat]}} in a
-    {{sauces[selectedSauce]}} sauce, and {{sides[selectedSide]}} on the side</p>
-    <p *ngIf="selectedPasta === -1">Press 'Randomise' to get started</p>
+<p *ngIf="selectedPasta > -1">
+    You are having {{pasta[selectedPasta]}} with {{meats[selectedMeat]}} in a
+    {{sauces[selectedSauce]}} sauce, and {{sides[selectedSide]}} on the side
+</p>
+<p *ngIf="selectedPasta === -1">
+    {{isSpinning ? "DECIDING" : "Press 'Randomise' to get started"}}
+</p>
 <footer>
-    <button (click)="randomise()">Randomise</button>
+    <button (click)="randomise()" [disabled]="isSpinning">Randomise</button>
 </footer>
