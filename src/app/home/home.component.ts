@@ -13,6 +13,10 @@ export class HomeComponent implements OnInit {
   public meats = [];
   public sides = [];
 
+  public selectedPasta = -1;
+  public selectedSauce = -1;
+  public selectedMeat = -1;
+  public selectedSide = -1;
 
   constructor(private data: DataService) { }
 
@@ -29,6 +33,13 @@ export class HomeComponent implements OnInit {
     this.data.getSides().then((res: Array<string>) => {
       this.sides = res;
     });
+  }
+
+  randomise() {
+    this.selectedPasta = this.data.getRandomItem('pasta');
+    this.selectedSauce = this.data.getRandomItem('sauces');
+    this.selectedMeat = this.data.getRandomItem('meats');
+    this.selectedSide = this.data.getRandomItem('sides');
   }
 
 }

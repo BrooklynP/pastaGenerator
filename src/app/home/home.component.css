@@ -1,5 +1,8 @@
 ul{
-    display: flex; 
+    display: flex;
+    border: solid 1px #ccc;
+    width: 100%;
+    padding: 0;
 }
 li{
     list-style: none;
@@ -7,4 +10,16 @@ li{
     border-radius: 4px;
     margin: 8px;
     padding: 8px 16px;
+}
+h1, p{
+    text-align: center;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    cursor: pointer;
 }
