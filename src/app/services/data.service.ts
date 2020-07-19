@@ -57,7 +57,7 @@ export class DataService {
     }
   }
 
-  private getRandomNumber(min: number, max: number) {
+  private getRandomNumber(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min) + min);
   }
 }

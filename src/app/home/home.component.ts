@@ -20,6 +20,9 @@ export class HomeComponent implements OnInit {
 
   public isSpinning = false;
   private offset = 0;
+  private readonly middleIndex = 4;
+  private readonly spinSpeed = 200;
+  private readonly spinTime = 2000;
 
   constructor(private data: DataService) { }
 
@@ -44,7 +47,7 @@ export class HomeComponent implements OnInit {
     this.selectedMeat = -1;
     this.selectedSauce = -1;
     this.selectedSide = -1;
-    const isSpinning = setInterval(() => { this.offset++; }, 200);
+    const isSpinning = setInterval(() => { this.offset++; }, this.spinSpeed);
     setTimeout(() => {
       clearInterval(isSpinning);
       this.selectedPasta = this.data.getRandomItem('pasta');
@@ -52,10 +55,10 @@ export class HomeComponent implements OnInit {
       this.selectedMeat = this.data.getRandomItem('meats');
       this.selectedSide = this.data.getRandomItem('sides');
       this.isSpinning = false;
-    }, 2000);
+    }, this.spinTime);
   }
 
-  getOrderForArray(array, currentIndex, selectedItem) {
+  getOrderForArray(array: Array<string>, currentIndex: number, selectedItem: number): number {
     let newIndex = currentIndex;
     if (selectedItem === -1) {
       newIndex = currentIndex + this.offset;
@@ -65,8 +68,8 @@ export class HomeComponent implements OnInit {
       return newIndex;
     } else {
       if (currentIndex === selectedItem) {
-        return 4;
-      } else if (currentIndex === 4) {
+        return this.middleIndex;
+      } else if (currentIndex === this.middleIndex) {
         return selectedItem;
       } else {
         return currentIndex;
@@ -74,7 +77,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  getOrder(currentIndex, arrayName) {
+  getOrder(currentIndex: number, arrayName: string): number {
     switch (arrayName) {
       case 'pasta':
         return this.getOrderForArray(this.pasta, currentIndex, this.selectedPasta);
